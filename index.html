@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ExploreMakassar</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .text-primary {
+    color: #D62828 !important;
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #000;
+}
+.h7 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+  
+    font-weight: 800;
+    line-height: 1.2;
+    color: #fff;
+    font-family: "Heebo", sans-serif;
+    font-weight: 800;
+
+  
+
+}
+.btn-primary {
+    color: #000;
+    background-color: #D62828;
+    border-color: #D62828;
+}
+.img-cover {
+    object-fit: cover; /* Memastikan gambar memenuhi area tanpa distorsi */
+    width: 100%;
+    height: 100%;
+}
+
+/* Kontrol layout untuk elemen */
+.position-relative {
+    position: relative;
+}
+.position-absolute {
+    position: absolute;
+}
+.bg-primary {
+    background-color: #d62828 !important;
+}
+.border-primary {
+    border-color: #d62828 !important;
+}
+.display-3 {
+    font-size: calc(1.525rem + 3.3vw);
+    font-weight: 800;
+    line-height: 1.2;
+    font-family: "Nunito", sans-serif;
+}
+.video-source {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    font-size: 14px;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5); /* Background semi-transparan */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.photo-source {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    border-radius: 5px;
+    text-align: right;
+}
+.photo-source a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.photo-source {
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 2px 8px;
+}
+.photo-source {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 15px;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.6);  /* Transparansi latar belakang */
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        z-index: 10;  /* Menjaga kotak sumber di atas gambar */
+    }
+
+    /* Pastikan gambar tetap di bawah kotak sumber */
+    .position-relative {
+        position: relative;
+    }
+    
+    /* Jika ada animasi pada gambar, pastikan gambar tidak mengubah posisi kotak sumber */
+    .wow.zoomIn {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Pastikan kotak sumber tetap terlihat meskipun gambar melakukan animasi */
+    .photo-source a {
+        color: white;  /* Warna link tetap putih agar terlihat */
+        text-decoration: none;
+    }
+    .img-cover {
+    width: 100%;         /* Memastikan gambar mengisi lebar kolom */
+    height: 100%;        /* Memastikan gambar mengisi tinggi kolom */
+    object-fit: cover;   /* Mengatur gambar agar tidak terdistorsi */
+}
+.package-item {
+    border: 2px solid #ddd; /* Set border uniform */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden;
+    margin-bottom: 30px; /* Space between items */
+}
+
+.package-item .overflow-hidden {
+    position: relative;
+    height: 200px; /* Set the height of the image container */
+    background-color: #f4f4f4; /* Background color if image is missing */
+}
+
+.package-item .border-bottom {
+    border-bottom: 2px solid #ddd; /* Ensure bottom borders are consistent */
+}
+
+.package-item .text-center {
+    padding: 20px; /* Ensure consistent padding for text */
+}
+
+.package-item .btn {
+    padding: 10px 20px; /* Consistent padding for buttons */
+    border-radius: 30px;
+    background-color: #d62828; /* Button color */
+    color: #fff; /* Text color */
+    border: none;
+}
+
+.package-item .btn:hover {
+    background-color: #d62828; /* Darker button color on hover */
+}
+.booking {
+    position: relative;
+    color: #fff;
+    padding: 5rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.booking::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Gelap transparan untuk kontras */
+    z-index: 1;
+}
+
+.booking .row {
+    position: relative;
+    z-index: 2;
+}
+.photo-source-text {
+    background-color: transparent;
+  padding: 5px;
+  box-shadow: none;
+}
+</style>
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Jalan Baruga raya </small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+62 851 5798 8609</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>muhammadsofwaturrahman@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar & Hero Start -->
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>ExploreMakassar</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="package.html" class="nav-item nav-link">Packages</a>
+                        <a href="destination.html" class="nav-item nav-link">Destination</a>
+                        <a href="booking.html" class="nav-item nav-link">Booking</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Video Banner -->
+    <section class="section main-banner" id="top" data-section="section1">
+        <!-- Video Background -->
+        <div class="video-container">
+            <video autoplay muted loop id="bg-video">
+                <source src="img/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+
+        <!-- Teks sumber video -->
+        <div class="video-source">
+            Source Video: <a href="https://youtu.be/xeuBJAhX674?si=21imcVm4hZdweVk4" target="_blank">YouTube</a>
+        </div>
+
+        <!-- Konten Hero Header di atas video -->
+        <div class="hero-header">
+            <h1 class="display-3 text-white animated slideInDown">Pesona Makassar: Jejak Budaya, Alam, dan Petualangan</h1>
+        </div>
+    </section>
+</div>
+    <!-- Navbar & Hero End -->
+
+</body>
+</html>
+
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt="Explore Makassar" style="object-fit: cover;">
+                        <div class="photo-source text white position-absolute bottom-0 end-0 p-2">
+                            Source Photo: <a href="https://images.app.goo.gl/iUGSCme9e5QZGmfo7" target="_ blank" class="text-white">Google Images</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">about us</h6>
+                    <h1 class="mb-4">Selamat datang di <span class="text-primary">ExploreMakassar</span></h1>
+                    <p class="mb-4">Selamat datang di ExploreMakassar! Kami adalah platform digital yang berdedikasi untuk memperkenalkan keindahan, kekayaan budaya, dan ragam destinasi wisata di Makassar, gerbang pariwisata Sulawesi.</p>
+                    <p class="mb-4">Kami percaya bahwa setiap sudut Makassar menyimpan cerita, dari pantai yang memukau, kuliner yang kaya rasa, hingga warisan budaya yang berharga.</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <i class="fa fa-arrow-right text-primary me-2"></i>
+                            <p class="mb-0">Penginapan Terpilih</p>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <i class="fa fa-arrow-right text-primary me-2"></i>
+                            <p class="mb-0">Akomodasi Bintang 5 hingga Ekonomis</p>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <i class="fa fa-arrow-right text-primary me-2"></i>
+                            <p class="mb-0">Hotel Rekomendasi untuk Keluarga dan Backpacker</p>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <i class="fa fa-arrow-right text-primary me-2"></i>
+                            <p class="mb-0">Transportasi Lokal yang Mudah dan Praktis</p>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <i class="fa fa-arrow-right text-primary me-2"></i>
+                            <p class="mb-0">Tur Menarik dengan Pemandu Berpengalaman</p>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <i class="fa fa-arrow-right text-primary me-2"></i>
+                            <p class="mb-0">Layanan Pelanggan 24/7</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Baca Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    <!-- About End -->
+
+
+    
+
+
+   <!-- Destination Start -->
+<div class="container-xxl py-5 destination">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Destination</h6>
+            <h1 class="mb-5">Popular Destination</h1>
+        </div>
+        <div class="row g-3">
+            <div class="col-lg-7 col-md-6">
+                <div class="row g-3">
+                    <!-- Pantai Losari -->
+                    <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                        <a class="position-relative d-block overflow-hidden" href="https://maps.app.goo.gl/v9AguyurEqoyfMt38">
+                            <img class="img-fluid img-cover" src="img/destination-1.jpg" alt="Pantai Losari">
+                            <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Pantai Losari</div>
+                            <!-- Kotak sumber di depan gambar -->
+                            <div class="photo-source">
+                                Source: <a href="https://images.app.goo.gl/8tQJRhMzhNkyb8im9" target="_blank" class="text-white">Google Images</a>
+                            </div>
+                        </a>
+                    </div>
+            
+                    <!-- Central Point of Indonesia -->
+                    <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                        <a class="position-relative d-block overflow-hidden" href="https://maps.app.goo.gl/Erp5kyjpxFixDgQd8">
+                            <img class="img-fluid img-cover" src="img/destination-2.jpg" alt="Central Point of Indonesia">
+                            <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Central Point of Indonesia</div>
+                            <!-- Kotak sumber di depan gambar -->
+                            <div class="photo-source">
+                                Source: <a href="https://images.app.goo.gl/VzbuP4Cwc7ub3cFAA" target="_blank" class="text-white">Google Images</a>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Benteng Rotterdam -->
+                    <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                        <a class="position-relative d-block overflow-hidden" href="https://maps.app.goo.gl/i6BL9CPCnXgW433t8">
+                            <img class="img-fluid img-cover" src="img/destination-3.jpg" alt="Benteng Rotterdam">
+                            <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Benteng Rotterdam</div>
+                            <!-- Kotak sumber di depan gambar -->
+                            <div class="photo-source">
+                                Source: <a href="https://images.app.goo.gl/2Y9J9fvAswBX868P9" target="_blank" class="text-white">Google Images</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nipah Mall -->
+            <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                <a class="position-relative d-block h-100 overflow-hidden" href="https://maps.app.goo.gl/gpRZCRUPkeEUWMNu9">
+                    <img class="img-fluid img-cover" src="img/destination-4.jpg" alt="Nipah Mall">
+                    <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Nipah Mall</div>
+                    <!-- Kotak sumber di depan gambar -->
+                    <div class="photo-source">
+                        Source: <a href="https://images.app.goo.gl/ZUdLKTXEhvkuCDFF6" target="_blank" class="text-white">Google Images</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <!-- Destination Start -->
+
+
+  <!-- Package Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Packages</h6>
+            <h1 class="mb-5">Awesome Packages</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <!-- Paket 1 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="package-item border border-2 rounded shadow-sm">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="img/rotterdam.jpg" alt="Rotterdam Makassar">
+                    </div>
+                    <div class="d-flex border-bottom border-2">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Makassar</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>1 Hari</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Person</small>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="mb-0">IDR 300.000/Person</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                        </div>
+                        <p>Nikmati tur sehari penuh yang membawa Anda mengunjungi destinasi utama Makassar, cocok untuk wisatawan yang ingin merasakan keindahan dan kekayaan budaya kota dalam waktu singkat. Anda akan mengunjungi Benteng Rotterdam untuk menjelajahi sejarah kolonial Belanda, Pantai Losari untuk menikmati pemandangan matahari terbenam yang ikonik, dan Masjid Terapung yang megah berdiri di atas laut Makassar. Paket ini sudah termasuk transportasi dan tiket masuk, dengan harga mulai dari IDR 300,000 per orang.</p>
+                        <div class="d-flex justify-content-center mb-2">
+                            <a href="https://api.whatsapp.com/send/?phone=6285157988609&text&type=phone_number&app_absent=0" class="btn btn-sm btn-primary px-3" style="border-radius: 30px 30px 30px 30px;">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <small class="text-muted">Sumber gambar: <a href="img/rotterdam.jpg" target="_blank">Link Gambar</a></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paket 2 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="package-item border border-2 rounded shadow-sm">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="img/kuliner.jpeg" alt="Kuliner Makassar">
+                    </div>
+                    <div class="d-flex border-bottom border-2">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Makassar</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>4-5 Hours</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Person</small>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="mb-0">IDR 250,000/Person</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                        </div>
+                        <p>Bagi pecinta kuliner, paket ini menawarkan kesempatan untuk mencoba berbagai hidangan khas Makassar yang autentik dan lezat, ditemani oleh pemandu lokal yang akan membawa Anda ke tempat-tempat terbaik. Nikmati Coto Makassar yang kaya rasa, Pisang Epe yang manis di tepi Pantai Losari, serta Sop Konro dan Es Pisang Ijo yang ikonik. Paket ini sudah termasuk semua hidangan dengan harga mulai dari IDR 250,000 per orang.</p>
+                        <div class="d-flex justify-content-center mb-2">
+                            <a href="https://api.whatsapp.com/send/?phone=6285157988609&text&type=phone_number&app_absent=0" class="btn btn-sm btn-primary px-3" style="border-radius: 30px 30px 30px 30px;">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <small class="text-muted">Sumber gambar: <a href="img/kuliner.jpeg" target="_blank">Link Gambar</a></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paket 3 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="package-item border border-2 rounded shadow-sm">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="img/pulau samalona.jpg" alt="Pulau Samalona Makassar">
+                    </div>
+                    <div class="d-flex border-bottom border-2">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Makassar</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>1 Day</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Person</small>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="mb-0">IDR 450,000/Person</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                        </div>
+                        <p>Paket ini cocok bagi Anda yang mencintai alam dan pantai. Anda akan mengunjungi Pulau Samalona untuk menikmati snorkeling atau sekadar bersantai di pantai berpasir putih, Pantai Akkarena yang menawarkan spot sempurna untuk bermain air, dan Pulau Lae-Lae yang indah dan tenang. Paket ini sudah termasuk transportasi laut dan peralatan snorkeling, dengan harga mulai dari IDR 450,000 per orang.</p>
+                        <div class="d-flex justify-content-center mb-2">
+                            <a href="https://api.whatsapp.com/send/?phone=6285157988609&text&type=phone_number&app_absent=0" class="btn btn-sm btn-primary px-3" style="border-radius: 30px 30px 30px 30px;">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <small class="text-muted">Sumber gambar: <a href="img/pulau%20samalona.jpg" target="_blank">Link Gambar</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Package End -->
+
+   <!-- Booking Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="booking p-5" style="background-image: url('https://images.app.goo.gl/CiMqxbtmeq3u8VqRA'); background-size: cover; background-position: center;">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6 text-white">
+                    <h6 class="text-white text-uppercase">Booking</h6>
+                    <h1 class="text-white mb-4">Online Booking</h1>
+                    <p class="mb-4">Rencanakan liburan Anda di Makassar dengan cepat dan mudah melalui WhatsApp! Cukup hubungi kami, dan tim kami akan membantu Anda mengatur semua detail perjalanan, mulai dari pemesanan tiket, penginapan, hingga paket tur pilihan Anda.</p>
+                </div>
+                <div class="col-12">
+                    <a class="btn btn-outline-light w-100 py-3" href="https://api.whatsapp.com/send/?phone=6285157988609&text&type=phone_number&app_absent=0" role="button">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Booking End -->
+
+
+    <!-- Process Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Process</h6>
+                <h1 class="mb-5">3 Easy Steps</h1>
+            </div>
+            <div class="row gy-5 gx-4 justify-content-center">
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-globe fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4">Jelajahi Paket dan Destinasi</h5>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Mulai dengan menelusuri berbagai pilihan paket wisata, destinasi populer, dan aktivitas seru yang kami tawarkan di Makassar. Lihat deskripsi lengkap, gambar, dan ulasan untuk menemukan pengalaman yang paling sesuai dengan minat Anda.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-mobile fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4">Hubungi dan Konsultasikan</h5>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Anda bisa terhubung langsung ke layanan WhatsApp kami. Konsultasikan rencana perjalanan Anda dengan tim kami, tanyakan pilihan paket, jadwal, atau detail khusus.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-car fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4">Konfirmasi dan Nikmati Perjalanan Anda</h5>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Lakukan pembayaran melalui transfer bank atau e-wallet. Setelah konfirmasi, Anda akan mendapatkan bukti pemesanan dan detail perjalanan lengkap.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Process Start -->
+
+
+    
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5">Our Clients Say!!!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item bg-white text-center border p-4">
+                    
+                    <h5 class="mb-0">Dimas</h5>
+                    <p>Jakarta</p>
+                    <p class="mb-0">Liburan yang luar biasa di Makassar. Saya dan keluarga sangat menikmati wisata pulau dan kuliner khasnya. Pemandu wisata sangat ramah dan membantu menjelaskan budaya setempat dengan baik. Pengalaman ini benar-benar tak terlupakan.</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    
+                    <h5 class="mb-0">Rizky</h5>
+                    <p>Surabaya</p>
+                    <p class="mt-2 mb-0">Profesional dan mudah diatur. Dari awal pemesanan hingga akhir perjalanan, semuanya berjalan lancar. Saya sangat menyukai keindahan Pulau Samalona dan Pantai Losari. Terima kasih atas layanan yang luar biasa</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    
+                    <h5 class="mb-0">Maya</h5>
+                    <p>Bandung</p>
+                    <p class="mt-2 mb-0">Konsultasi perjalanan sangat membantu! Saya diberi rekomendasi destinasi yang sesuai dengan minat saya. Tim selalu cepat merespon dan memberikan saran yang sangat informatif. Pengalaman ini sangat berharga</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    
+                    <h5 class="mb-0">Andi</h5>
+                    <p>Yogyakarta</p>
+                    <p class="mt-2 mb-0">Website ini sangat memudahkan! Tur kuliner yang kami pilih sungguh menyenangkan dan penuh cita rasa unik Makassar. Terima kasih untuk layanan yang cepat dan panduan wisata yang profesional</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+        
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Company</h4>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Quick Links</h4>
+                    
+                    <a class="btn btn-link" href="packages.html">Packages</a>
+                    <a class="btn btn-link" href="destinations.html">Destinations</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Follow Us</h4>
+                    <div class="d-flex pt-2">
+                        
+                        <a class="btn btn-outline-light btn-social me-2" href="https://www.instagram.com/exploremakassarig/"><i class="fab fa-instagram"></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="index.html">ExploreMakassar</a>, All Rights Reserved.
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">muhammadsofwaturrahman</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="index.html">Home</a>
+                            <a href="about.html">About</a>
+                            <a href="contact.html">Contact</a>
+                           
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
